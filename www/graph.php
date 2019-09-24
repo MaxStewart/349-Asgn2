@@ -38,7 +38,7 @@ else {
 }
 
 foreach ($yearTotal as $key => $value) {
-    array_push($dataPoints, array("y" => $value, "label" => $key, "toolTipContent" => "Date: " . $key . "<br> Spent: $" . $value));
+    array_push($dataPoints, array("y" => $value, "label" => $key, "toolTipContent" => "Date: " . $key . "<br> Spent: $" . $value . " (NZD)"));
 }
 
 ?>
@@ -55,7 +55,7 @@ foreach ($yearTotal as $key => $value) {
                     text: "Spending"
                 },
                 axisY: {
-                    title: "$ Spent"
+                    title: "Amount (NZD)"
                 },
                 data: [{
                     type: "line",
@@ -90,9 +90,21 @@ foreach ($yearTotal as $key => $value) {
     </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid col-11">
+    <br><br>
     <h1>Spending Graph</h1>
-    <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='http://127.0.0.1:10222/'" name="goToTracking">Add Spending</button>
+    <hr>
+    <div class="row">
+        <br>
+        <div class="col-8">
+            <p>SpendTrack is a helpful tool that will track your spending and will graph your spending habits
+                to your desired timescale</p>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'" name="goToTracking">Add Spending</button>
+        </div>
+    </div>
+    <hr>
 </div>
 <div class="container">
     <div class="row justify-content-center">
@@ -119,6 +131,11 @@ foreach ($yearTotal as $key => $value) {
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </div>
 
+<footer style="position: fixed; left: 0; bottom: 0; width: 100%">
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        Max Stewart, Megan Starnes
+    </div>
+</footer>
 
 </body>
 </html>

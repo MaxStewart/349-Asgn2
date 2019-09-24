@@ -98,10 +98,17 @@ if(isset($_POST['submitCategories'])){
     <img src="banner.png" class="rounded" style="margin-top: 20px">
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid col-11">
     <div class="justify-content-center">
         <hr>
-        <h1>Spending tracking made easy</h1>
+        <div class="row">
+            <div class="col-9">
+                <h1>Spending tracking made easy</h1>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='graph.php'" name="goToTracking">Spending Graph</button>
+            </div>
+        </div>
         <h2>Welcome</h2>
         <div class="row">
             <div class="col">
@@ -111,26 +118,18 @@ if(isset($_POST['submitCategories'])){
                     add another spending category to select from when you add a purchase</p>
                 <p>Remember, you can only track what you put in!</p>
             </div>
-            <!-- <div class="col">
-                <div class="text-center">
-                    <img src="money.png" class="rounded" style="padding-bottom: 10px">
-                </div>
-                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='graph.php'" name="goToTracking">Graph your spending</button>
-            </div> -->
         </div>
         <hr>
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid col-10">
     <h3>Select one of the options to get started</h3>
     <div id="accordion">
         <div class="card">
             <div class="card-header" id="headingOne">
                 <a class="collapsed" data-toggle="collapse" data-target="#collapseOne" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					<h5 class="mb-0">
-						Add Spending
-					</h5>
+					<h5 class="mb-0">Add Spending</h5>
 				</a>
             </div>
 
@@ -204,9 +203,9 @@ if(isset($_POST['submitCategories'])){
                                 <input id="categoryName" name="categoryName" type="text" class="form-control" placeholder="e.g. Groceries">
                             </div>
                             <?php
-                            if($categoryErrorString !== ""){
-                                echo "<p style='text-align: center'>$categoryErrorString</p>";
-                            }
+                                if($categoryErrorString !== ""){
+                                    echo "<p style='text-align: center'>$categoryErrorString</p>";
+                                }
                             ?>
                             <button class="btn btn-primary btn-lg btn-block" type="submit" name="submitCategories">Add Category</button>
                         </form>
@@ -216,6 +215,12 @@ if(isset($_POST['submitCategories'])){
         </div>
     </div>
 </div>
+
+<footer style="position: relative; width: 100%">
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        Max Stewart, Megan Starnes
+    </div>
+</footer>
 
 </body>
 </html>
