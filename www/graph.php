@@ -75,9 +75,14 @@ foreach ($yearTotal as $key => $value) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <style>
+        body {
+            font-family: Verdana, serif;
+        }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">SpendTrack</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -90,35 +95,42 @@ foreach ($yearTotal as $key => $value) {
     </div>
 </nav>
 
-<div class="container-fluid col-11">
-    <br><br>
-    <h1>Spending Graph</h1>
-    <hr>
-    <div class="row">
-        <br>
-        <div class="col-8">
-            <p>SpendTrack is a helpful tool that will track your spending and will graph your spending habits
-                to your desired timescale</p>
-        </div>
-        <div class="col-4">
-            <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'" name="goToTracking">Add Spending</button>
-        </div>
-    </div>
-    <hr>
+<div class="text-center">
+    <img src="banner.png" class="rounded" style="margin-top: 20px">
 </div>
-<div class="container">
+
+<div class="container-fluid">
+    <div class="justify-content-center">
+        <hr>
+        <div class="row">
+            <div class="col-8">
+                <h1>Spending Graph</h1>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'" name="goToTracking">Spending Graph</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>Pick an interval graph your spending to.</p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<div class="container p-3">
     <div class="row justify-content-center">
         <form name="add-spend-form" method="post" id="add-spend-form">
-            <p class="h4 mb-4 text-center">Select Graph Interval</p>
             <div class="form-row">
-                <div class="col">
+                <div class="col-8">
                     <select name="interval" class="form-control form-control-sm">
                         <option value="monthly" <?php if($interval === "monthly") echo "selected"; ?>>Monthly</option>
                         <option value="yearly" <?php if($interval === "yearly") echo "selected"; ?>>Yearly</option>
                         <option value="category" <?php if($interval === "category") echo "selected"; ?>>Category</option>
                     </select>
                 </div>
-                <div class="col">
+                <div class="col-4">
                     <button class="btn btn-primary btn-sm" type="submit" name="submitInterval">Graph</button>
                 </div>
             </div>
@@ -132,8 +144,8 @@ foreach ($yearTotal as $key => $value) {
 </div>
 
 <footer style="position: fixed; left: 0; bottom: 0; width: 100%">
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
-        Max Stewart, Megan Starnes
+    <div class="footer-copyright text-center py-3">
+        © 2018 Copyright: Max Stewart, Megan Starnes
     </div>
 </footer>
 

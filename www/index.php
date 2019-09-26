@@ -9,6 +9,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <style>
+        body {
+            font-family: Verdana, serif;
+        }
+    </style>
 </head>
 <body>
 
@@ -81,7 +86,7 @@ if(isset($_POST['submitCategories'])){
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">SpendTrack</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -102,14 +107,14 @@ if(isset($_POST['submitCategories'])){
     <div class="justify-content-center">
         <hr>
         <div class="row">
-            <div class="col-9">
-                <h1>Spending tracking made easy</h1>
+            <div class="col-8">
+                <h1 class="h2">Spending tracking made easy</h1>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='graph.php'" name="goToTracking">Spending Graph</button>
             </div>
         </div>
-        <h2>Welcome</h2>
+        <h2 class="h3">Welcome</h2>
         <div class="row">
             <div class="col">
                 <p>SpendTrack is a helpful tool that will track your spending and will graph your spending habits
@@ -155,7 +160,7 @@ if(isset($_POST['submitCategories'])){
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input id="purchaseAmount" name="purchaseAmount" type="number" class="form-control">
+                                        <input id="purchaseAmount" name="purchaseAmount" type="number" class="form-control" placeholder="e.g. 20.50">
                                     </div>
                                 </div>
                                 <div class="col">
