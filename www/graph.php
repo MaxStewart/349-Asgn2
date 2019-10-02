@@ -12,7 +12,7 @@ $yearTotal = array();
 
 $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
-$query = $pdo->query("SELECT * FROM purchases");
+$query = $pdo->query("SELECT * FROM purchases ORDER BY date");
 
 if(isset($_POST['submitInterval'])){
     $interval = $_POST['interval'];
@@ -38,7 +38,7 @@ else {
 }
 
 foreach ($yearTotal as $key => $value) {
-    array_push($dataPoints, array("y" => $value, "label" => $key, "toolTipContent" => "Date: " . $key . "<br> Spent: $" . $value . " (NZD)"));
+    array_push($dataPoints, array("y" => $value, "label" => $key, "toolTipContent" => "Category: " . $key . "<br> Spent: $" . $value . " (NZD)"));
 }
 
 ?>
@@ -49,21 +49,35 @@ foreach ($yearTotal as $key => $value) {
 
     <script>
         window.onload = function () {
-
-            var chart = new CanvasJS.Chart("chartContainer", {
-                title: {
-                    text: "Spending"
-                },
-                axisY: {
-                    title: "Amount (NZD)"
-                },
-                data: [{
-                    type: "line",
-                    dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-                }]
-            });
-            chart.render();
-
+            <?php if($interval !== "category") { ?>
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    title: {
+                        text: "Spending"
+                    },
+                    axisY: {
+                        title: "Amount (NZD)"
+                    },
+                    data: [{
+                        type: "line",
+                        dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                    }]
+                });
+                chart.render();
+            <?php } else { ?>
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    title: {
+                        text: "Spending"
+                    },
+                    axisY: {
+                        title: "Amount (NZD)"
+                    },
+                    data: [{
+                        type: "column",
+                        dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+                    }]
+                });
+                chart.render();
+            <?php } ?>
         }
     </script>
 
@@ -90,7 +104,7 @@ foreach ($yearTotal as $key => $value) {
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" href="index.php">Spending Graph</a>
+            <a class="nav-item nav-link active" href="graph.php">Spending Graph</a>
         </div>
     </div>
 </nav>
@@ -107,7 +121,7 @@ foreach ($yearTotal as $key => $value) {
                 <h1>Spending Graph</h1>
             </div>
             <div class="col-4">
-                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'" name="goToTracking">Spending Graph</button>
+                <button class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'" name="goToTracking">Add Spending</button>
             </div>
         </div>
         <div class="row">
