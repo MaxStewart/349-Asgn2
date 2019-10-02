@@ -9,6 +9,7 @@ $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
 
 $sql = "CREATE TABLE purchases (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     date DATE NOT NULL,
     amount VARCHAR(10) NOT NULL,
