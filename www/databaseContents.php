@@ -70,9 +70,9 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
         <table>
             <tr>
                 <th>Title</th>
-                <th>Amount</th>
+                <th>Amount ($)</th>
                 <th>Category</th>
-                <th>Date</th>
+                <th>Date (YYYY-MM-DD)</th>
                 <th>Notes</th>
                 <th>Remove</th>
             </tr>
@@ -81,11 +81,11 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
             while ($row = $query->fetch()) {
                 echo "<tr>
                         <td>$row[name]</td>
-                        <td>$row[amount]</td>
+                        <td>$$row[amount]</td>
                         <td>$row[category]</td>
                         <td>$row[date]</td>
                         <td>$row[notes]</td>
-                        <td><button type='button' class='deleteButton' value='$row[name]++$row[date]'>Delete Record</button> </td>
+                        <td><a href='deleteItem.php?id=".$row['id']."'>Delete</a></td>
                      </tr>";
                 }
             ?>

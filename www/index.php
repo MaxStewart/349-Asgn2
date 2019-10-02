@@ -51,7 +51,7 @@ if(isset($_POST['submitSpend'])){
         $amount = $_POST['purchaseAmount'];
         $category = $_POST['category'];
         $notes = $_POST['purchaseNotes'];
-        $sql = "INSERT INTO purchases VALUES ('$name','$date','$amount','$category','$notes')";
+        $sql = "INSERT INTO purchases VALUES (NULL, '$name','$date','$amount','$category','$notes')";
         $pdo->exec($sql);
     }
 }
@@ -120,8 +120,8 @@ if(isset($_POST['submitCategories'])){
             <div class="col">
                 <p>SpendTrack is a helpful tool that will track your spending and will graph your spending habits
                     to your desired timescale, be that weekly, monthly, or yearly.</p>
-                <p>Click below on Add Spending to add a purchase and start your tracking. Or select Add Category to
-                    add another spending category to select from when you add a purchase</p>
+                <p>Click below on <strong>Add Spending</strong> to add a purchase and start your tracking. Or select <strong>Add Category</strong> to
+                    add another spending category to select from when you add a purchase.</p>
                 <p>Remember, you can only track what you put in!</p>
             </div>
         </div>
