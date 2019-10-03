@@ -202,7 +202,7 @@ if(isset($_POST['submitCategories'])){
             <div id="collapseTwo" class="collapse <?php if(isset($_POST['submitCategories'])){ echo "show"; } ?>" aria-labelledby="headingTwo" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row justify-content-center">
-                        <form name="add-category-form" method="post" id="add-category-form">
+                        <form name="add-category-form" action="#add-category-form" method="post" id="add-category-form">
                             <p class="h4 mb-4 text-center">Add Category</p>
                             <div class="form-group">
                                 <label for="categoryName">Category Name:</label>
