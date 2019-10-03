@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Frontend</title>
+<title>SpendTrack - Home</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -142,7 +142,7 @@ if(isset($_POST['submitCategories'])){
             <div id="collapseOne" class="collapse <?php if(isset($_POST['submitSpend'])){ echo "show"; } ?>" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <div class="row justify-content-center">
-                        <form name="add-spend-form" method="post" id="add-spend-form">
+                        <form name="add-spend-form" action="#add-spend-form" method="post" id="add-spend-form">
                             <p class="h4 mb-4 text-center">Add Purchase</p>
                             <div class="form-row">
                                 <div class="col">
@@ -161,7 +161,7 @@ if(isset($_POST['submitCategories'])){
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">$</span>
                                         </div>
-                                        <input id="purchaseAmount" name="purchaseAmount" type="number" class="form-control" placeholder="e.g. 20.50">
+                                        <input id="purchaseAmount" name="purchaseAmount" type="number" step="0.01" class="form-control" placeholder="e.g. 20.50">
                                     </div>
                                 </div>
                                 <div class="col">
