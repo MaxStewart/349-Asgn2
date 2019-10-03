@@ -150,7 +150,7 @@ if(isset($_POST['submitCategories'])){
                                     <input id="purchaseName" name="purchaseName" type="text" class="form-control" placeholder="e.g. Dinner">
                                 </div>
                                 <div class="col">
-                                    <label for="purchaseDate">Purchase date:</label>
+                                    <label for="purchaseDate">Date: (mm/dd/yyyy)</label>
                                     <input id="purchaseDate" name="purchaseDate" type="date" class="form-control">
                                 </div>
                             </div>

@@ -95,11 +95,13 @@ if(isset($_POST['submitOrdering'])){
                 <th>Title</th>
                 <th>Amount ($)</th>
                 <th>Category</th>
-                <th>Date (YYYY-MM-DD)</th>
+                <th>Date (DD-MM-YYYY)</th>
                 <th>Notes</th>
                 <th>Remove</th>
             </tr>
             <?php
+
+            // Choose ordering of query
             $orderType = "";
             if($ordering == "newestFirst"){
                 $orderType = " ORDER BY date DESC";
@@ -108,14 +110,18 @@ if(isset($_POST['submitOrdering'])){
             } else if ($ordering == "category"){
                 $orderType = " ORDER BY category";
             }
+
             $sql = "SELECT * FROM purchases" . $orderType;
             $query = $pdo->query($sql);
             while ($row = $query->fetch()) {
+                // Format the date string to DD-MM-YYYY
+                $date = $row['date'];
+                $dateArry = explode("-", $date);
                 echo "<tr>
                         <td>$row[name]</td>
                         <td>$$row[amount]</td>
                         <td>$row[category]</td>
-                        <td>$row[date]</td>
+                        <td>$dateArry[2]-$dateArry[1]-$dateArry[0]</td>
                         <td>$row[notes]</td>
                         <td><a href='deleteItem.php?id=".$row['id']."'>Delete</a></td>
                      </tr>";
