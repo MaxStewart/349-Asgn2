@@ -43,6 +43,11 @@ $db_pass = 'Alexander';
 $pdo_dsn = "mysql:host=$db_host;dbname=$db_name";
 $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
 
+// Get ordering from the form
+if(isset($_POST['submitOrdering'])){
+    $ordering = $_POST['ordering'];
+}
+
 ?>
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -66,7 +71,25 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
 <div class="container-fluid col-11">
     <div class="justify-content-center text-center">
         <hr>
-        <h3>Purchases</h3>
+        <span style="font-size: 20px"><strong>Purchases</strong></span>
+        <span>
+            <form name="submitOrdering" method="post" id="submitOrdering" style="float: right">
+                <div class="form-row">
+                    <div class="">
+                        <select name="ordering" class="form-control form-control-sm">
+                            <option value="newestFirst" <?php if($ordering === "newestFirst") echo "selected"; ?>>Newest First</option>
+                            <option value="oldestFirst" <?php if($ordering === "oldestFirst") echo "selected"; ?>>Oldest First</option>
+                            <option value="category" <?php if($ordering === "category") echo "selected"; ?>>Category</option>
+                        </select>
+                    </div>
+                    <div class="">
+                        <button class="btn btn-primary btn-sm" type="submit" name="submitOrdering">Order</button>
+                    </div>
+                </div>
+            </form>
+        </span>
+
+        </form>
         <table>
             <tr>
                 <th>Title</th>
@@ -77,7 +100,16 @@ $pdo = new PDO($pdo_dsn, $db_user, $db_pass);
                 <th>Remove</th>
             </tr>
             <?php
-            $query = $pdo->query("SELECT * FROM purchases");
+            $orderType = "";
+            if($ordering == "newestFirst"){
+                $orderType = " ORDER BY date DESC";
+            } else if ($ordering == "oldestFirst"){
+                $orderType = " ORDER BY date";
+            } else if ($ordering == "category"){
+                $orderType = " ORDER BY category";
+            }
+            $sql = "SELECT * FROM purchases" . $orderType;
+            $query = $pdo->query($sql);
             while ($row = $query->fetch()) {
                 echo "<tr>
                         <td>$row[name]</td>
