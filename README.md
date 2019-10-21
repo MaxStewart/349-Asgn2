@@ -1,15 +1,17 @@
 # 349-Asgn2
- Assignment 2 for COSC349
+ Assignment 2 for COSC349 (semester 2 2019)
+ 
+ This assignment was about hosting a webapp on AWS.
 
- The files hosted on our AWS EC2 can be found in the file "AWS Version".
+ The files that were hosted on our AWS EC2 can be found in the file "AWS Version".
  
- Anything not in "AWS Version" was used for local development and testing and is NOT part of our publicly avaliable AWS webserver. 
+ Anything not in "AWS Version" was used for local development and testing via a VM.
  
- For this assignment we will be using AWS cloud software. We will host a website on an EC2 instance that will read/write to a RDS instance.
- 
- I am using the VM's from Assignment 1 to test.
+ For this assignment we used AWS cloud software. We hosted a website on an EC2 instance that would read/write to a RDS instance.
 
 # NOTE ABOUT VAGRANT FILE
  The vagrant file was used to test and locally develop our webapp while the instances for AWS were being setup. This vagant file is not used to setup anything to do with AWS.
  
  NOTE: Please be aware the copyright on the webpage isn't enforced.
+ 
+ To view and run our webapp download and run 'vagrant up' from the root of this directory
