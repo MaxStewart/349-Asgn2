@@ -1,4 +1,3 @@
-# 349-Asgn2 
  This project was about hosting a webapp on AWS.
 
  The files that were hosted on our AWS EC2 can be found in the file "AWS Version".
