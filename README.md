@@ -1,3 +1,5 @@
+ **Please be aware that the services were run on AWS but have been taken off now. You can still run the webservice locally using vagrant**
+ 
  This project was about hosting a webapp on AWS.
 
  The files that were hosted on our AWS EC2 can be found in the file "AWS Version".
