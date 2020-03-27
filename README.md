@@ -1,7 +1,5 @@
-# 349-Asgn2
- Assignment 2 for COSC349 (semester 2 2019)
- 
- This assignment was about hosting a webapp on AWS.
+# 349-Asgn2 
+ This project was about hosting a webapp on AWS.
 
  The files that were hosted on our AWS EC2 can be found in the file "AWS Version".
  
