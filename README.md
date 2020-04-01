@@ -2,11 +2,11 @@
  
  This project was about hosting a webapp on AWS.
 
- The files that were hosted on our AWS EC2 can be found in the file "AWS Version".
+ The webapp was hosted on our AWS EC2 and read/wrote data to an RDS database. These files that were hosted can be found in the file "AWS Version".
  
- Anything not in "AWS Version" was used for local development and testing via a VM.
+ Anything not in "AWS Version" was used for local development and testing via a VM using vagrant.
  
- For this assignment we used AWS cloud software. We hosted a website on an EC2 instance that would read/write to a RDS instance.
+ For this project we used AWS cloud software. We hosted a website on an EC2 instance that would read/write to a RDS instance.
 
 # NOTE ABOUT VAGRANT FILE
  The vagrant file was used to test and locally develop our webapp while the instances for AWS were being setup. This vagant file is not used to setup anything to do with AWS.
