@@ -1,4 +1,4 @@
- **Please be aware that the services were run on AWS but have been taken off now. You can still run the webservice locally using vagrant see "To View this project" below**
+ **Please be aware that the services were run on AWS, but have been taken off. You can still run the webservice locally using vagrant, see "To View this project" below for instructions**
  
  This project was about hosting a webapp on AWS. The webapp we developed was a simple "Spending tracker" where users could add items they had purchased and could view these items at a later date as well as seeing their spending habits on a graph. 
  
